@@ -40,5 +40,4 @@ For example:
 ## License
 Copyright (c) 2025 Valentin Dimov
 
-This project is licensed under the MIT license, see [LICENSE](./LICENSE).
-
+This project is licensed under the zero-clause BSD license, see [LICENSE](./LICENSE).
