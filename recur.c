@@ -56,7 +56,7 @@ static int readFile(char* filename, char* buf, size_t bufsize) {
         return -1; 
     }
     unsigned int result = 0;
-    while (result >= 0 && result < bufsize) {
+    while (result < bufsize) {
         int readResult = read(fileFd, &(buf[result]), bufsize - result);
         if (readResult == 0) { 
             break; 
@@ -80,7 +80,7 @@ static int writeFile(char* filename, char* buf, size_t bufsize) {
         return -1; 
     }
     unsigned int result = 0;
-    while (result >= 0 && result < bufsize) {
+    while (result < bufsize) {
         int writeResult = write(fileFd, &(buf[result]), bufsize - result);
         if (writeResult <= 0) { 
             if (errno != EINTR) {
@@ -96,6 +96,8 @@ static int writeFile(char* filename, char* buf, size_t bufsize) {
 }
 
 int main(int argc, char** argv, char** envp) {
+    // Shut up the warning about unused arguments
+    (void)(argc);
     // parse command-line options
     char** programArgv = NULL; // full argv for the program we want to execute
     time_t interval = 0; // interval (in seconds) at which we want to execute the program
